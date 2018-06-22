@@ -3,6 +3,7 @@ arch-install - Simple Arch Linux Install Script
 
  * Author: Tom Wambold <tom5760@gmail.com>
  * Copyright (c) 2012 Tom Wambold
+ * Edits and updates by nzkritik
 
 This is just a simple shell script I use to install my own personal systems
 with [Arch Linux][arch], with some options to customize the install a bit.
@@ -95,8 +96,3 @@ Then, when you want to re-run the install script, do this in the live system:
 
 Now, you should be able to re-run the install script cleanly.
 
-### I can't seem to override the ZSH config!
-
-Uninstall the `grml-zsh-config` package, it installs a global ZSH config.
-
-    pacman -Rsc grml-zsh-config
