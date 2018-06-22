@@ -42,10 +42,10 @@
 DRIVE='/dev/sda'
 
 # Hostname of the installed machine.
-HOSTNAME='host100'
+HOSTNAME='arch'
 
 # Encrypt everything (except /boot).  Leave blank to disable.
-ENCRYPT_DRIVE='TRUE'
+ENCRYPT_DRIVE=''
 
 # Passphrase used to encrypt the drive (leave blank to be prompted).
 DRIVE_PASSPHRASE=''
@@ -71,16 +71,16 @@ KEYMAP='us'
 
 # Choose your video driver
 # For Intel
-VIDEO_DRIVER="i915"
+#VIDEO_DRIVER="i915"
 # For nVidia
 #VIDEO_DRIVER="nouveau"
 # For ATI
 #VIDEO_DRIVER="radeon"
 # For generic stuff
-#VIDEO_DRIVER="vesa"
+VIDEO_DRIVER="vesa"
 
 # Wireless device, leave blank to not use wireless and use DHCP instead.
-WIRELESS_DEVICE="wlan0"
+WIRELESS_DEVICE=""
 # For tc4200's
 #WIRELESS_DEVICE="eth1"
 
@@ -254,6 +254,9 @@ setup_lvm() {
 
     # Create a 8GB swap partition
     # lvcreate -C y -L8192M "$volgroup" -n swap
+    
+    # Create a 1GB swap partition
+    lvcreate -C y -L1024M "$volgroup" -n swap    
 
     # Use the rest of the space for root
     lvcreate -l '+100%FREE' "$volgroup" -n root
