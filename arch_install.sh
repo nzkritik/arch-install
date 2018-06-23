@@ -400,7 +400,10 @@ set_hostname() {
 
 set_timezone() {
     local timezone="$1"; shift
-
+    tzfile="/etc/localtime"
+    if [ -f $tzfile ] ; then
+        rm $tzfile
+    fi
     ln -sT "/usr/share/zoneinfo/$TIMEZONE" /etc/localtime
 }
 
