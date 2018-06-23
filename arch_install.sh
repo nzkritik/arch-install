@@ -303,12 +303,12 @@ install_packages() {
 
     # General utilities/libraries
     #packages+=' alsa-utils aspell-en firefox neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
-    packages+=' alsa-utils aspell-en neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
+    packages+=' alsa-utils aspell-en neofetch cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip'
 
 
     # Development packages
     #packages+=' apache-ant cmake gdb git maven tcpdump valgrind'
-    packages+=' cmake gdb git tcpdump valgrind'
+    packages+=' cmake gdb git tcpdump'
 
     # Netcfg
     if [ -n "$WIRELESS_DEVICE" ]
@@ -323,7 +323,7 @@ install_packages() {
     #packages+=' libreoffice-fresh hunspell-en hyphen-en mythes-en'
 
     # Misc programs
-    #packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode'
+    #packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode zsh aalib libcaca'
 
     # Xserver
     packages+=' xorg-apps xorg-server xorg-xinit xterm'
@@ -332,7 +332,7 @@ install_packages() {
     packages+=' slim archlinux-themes-slim'
 
     # Fonts
-    packages+=' ttf-dejavu ttf-liberation adobe-source-code-pro-fonts'
+    #packages+=' ttf-dejavu ttf-liberation adobe-source-code-pro-fonts'
 
     # i3 Setup
     packages+=' i3 i3status i3blocks i3lock mpv ranger'
