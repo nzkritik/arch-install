@@ -144,8 +144,8 @@ configure() {
     echo 'Installing additional packages'
     install_packages
 
-    echo 'Installing packer'
-    install_packer
+##    echo 'Installing packer'
+##    install_packer
 
     echo 'Installing AUR packages'
     install_aur_packages
@@ -363,26 +363,26 @@ install_packages() {
     pacman -Sy --noconfirm $packages
 }
 
-install_packer() {
-    mkdir /foo
-    cd /foo
-    curl https://aur.archlinux.org/cgit/aur.git/snapshot/packer.tar.gz | tar xzf -
-    cd packer
-    makepkg -si --noconfirm --needed
+###install_packer() {
+###    mkdir /foo
+###    cd /foo
+###    curl https://aur.archlinux.org/cgit/aur.git/snapshot/packer.tar.gz | tar xzf -
+###    cd packer
+###    makepkg -si --noconfirm --needed
+###
+###    cd /
+###    rm -rf /foo
+###}
 
-    cd /
-    rm -rf /foo
-}
-
-install_aur_packages() {
-    mkdir /foo
-    export TMPDIR=/foo
-    packer -S --noconfirm android-udev
-    packer -S --noconfirm chromium-pepper-flash-stable
-    packer -S --noconfirm chromium-libpdf-stable
-    unset TMPDIR
-    rm -rf /foo
-}
+###install_aur_packages() {
+###    mkdir /foo
+###    export TMPDIR=/foo
+###    packer -S --noconfirm android-udev
+###    packer -S --noconfirm chromium-pepper-flash-stable
+###    packer -S --noconfirm chromium-libpdf-stable
+###    unset TMPDIR
+###    rm -rf /foo
+###}
 
 clean_packages() {
     yes | pacman -Scc
