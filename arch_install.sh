@@ -147,8 +147,8 @@ configure() {
 ##    echo 'Installing packer'
 ##    install_packer
 
-    echo 'Installing AUR packages'
-    install_aur_packages
+##    echo 'Installing AUR packages'
+##    install_aur_packages
 
     echo 'Clearing package tarballs'
     clean_packages
