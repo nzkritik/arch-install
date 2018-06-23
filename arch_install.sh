@@ -366,7 +366,7 @@ install_packages() {
 install_packer() {
     mkdir /foo
     cd /foo
-    curl https://aur.archlinux.org/packages/pa/packer/packer.tar.gz | tar xzf -
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/packer.tar.gz | tar xzf -
     cd packer
     makepkg -si --noconfirm --asroot
 
