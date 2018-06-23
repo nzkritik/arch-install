@@ -42,10 +42,10 @@
 DRIVE='/dev/sda'
 
 # Hostname of the installed machine.
-HOSTNAME='host100'
+HOSTNAME='arch'
 
 # Encrypt everything (except /boot).  Leave blank to disable.
-ENCRYPT_DRIVE='TRUE'
+ENCRYPT_DRIVE=''
 
 # Passphrase used to encrypt the drive (leave blank to be prompted).
 DRIVE_PASSPHRASE=''
@@ -80,7 +80,7 @@ VIDEO_DRIVER="i915"
 #VIDEO_DRIVER="vesa"
 
 # Wireless device, leave blank to not use wireless and use DHCP instead.
-WIRELESS_DEVICE="wlan0"
+WIRELESS_DEVICE=""
 # For tc4200's
 #WIRELESS_DEVICE="eth1"
 
@@ -254,6 +254,7 @@ setup_lvm() {
 
     # Create a 8GB swap partition
     # lvcreate -C y -L8192M "$volgroup" -n swap
+    lvcreate -C y -L1024M "$volgroup" -n swap
 
     # Use the rest of the space for root
     lvcreate -l '+100%FREE' "$volgroup" -n root
@@ -301,10 +302,13 @@ install_packages() {
     local packages=''
 
     # General utilities/libraries
-    packages+=' alsa-utils aspell-en firefox neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
+    #packages+=' alsa-utils aspell-en firefox neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
+    packages+=' alsa-utils aspell-en neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
+
 
     # Development packages
-    packages+=' apache-ant cmake gdb git maven tcpdump valgrind'
+    #packages+=' apache-ant cmake gdb git maven tcpdump valgrind'
+    packages+=' cmake gdb git tcpdump valgrind'
 
     # Netcfg
     if [ -n "$WIRELESS_DEVICE" ]
@@ -313,13 +317,13 @@ install_packages() {
     fi
 
     # Java stuff
-    packages+=' jdk8-openjdk jre8-openjdk'
+    #packages+=' jdk8-openjdk jre8-openjdk'
 
     # Libreoffice
-    packages+=' libreoffice-fresh hunspell-en hyphen-en mythes-en'
+    #packages+=' libreoffice-fresh hunspell-en hyphen-en mythes-en'
 
     # Misc programs
-    packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode'
+    #packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode'
 
     # Xserver
     packages+=' xorg-apps xorg-server xorg-xinit xterm'
@@ -328,10 +332,13 @@ install_packages() {
     packages+=' slim archlinux-themes-slim'
 
     # Fonts
-    packages+=' ttf-dejavu ttf-liberation'
+    packages+=' ttf-dejavu ttf-liberation adobe-source-code-pro-fonts'
+
+    # i3 Setup
+    packages+=' i3 i3status i3blocks i3lock mpv ranger'
 
     # On Intel processors
-    packages+=' intel-ucode'
+    #packages+=' intel-ucode'
 
     # For laptops
     packages+=' xf86-input-synaptics'
