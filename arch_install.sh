@@ -48,16 +48,16 @@ HOSTNAME='arch'
 ENCRYPT_DRIVE=''
 
 # Passphrase used to encrypt the drive (leave blank to be prompted).
-DRIVE_PASSPHRASE=''
+DRIVE_PASSPHRASE='test'
 
 # Root password (leave blank to be prompted).
-ROOT_PASSWORD=''
+ROOT_PASSWORD='test'
 
 # Main user to create (by default, added to wheel group, and others).
 USER_NAME='user'
 
 # The main user's password (leave blank to be prompted).
-USER_PASSWORD=''
+USER_PASSWORD='test'
 
 # System timezone.
 TIMEZONE='Pacific/Auckland'
@@ -71,13 +71,13 @@ KEYMAP='us'
 
 # Choose your video driver
 # For Intel
-VIDEO_DRIVER="i915"
+#VIDEO_DRIVER="i915"
 # For nVidia
 #VIDEO_DRIVER="nouveau"
 # For ATI
 #VIDEO_DRIVER="radeon"
 # For generic stuff
-#VIDEO_DRIVER="vesa"
+VIDEO_DRIVER="vesa"
 
 # Wireless device, leave blank to not use wireless and use DHCP instead.
 WIRELESS_DEVICE=""
@@ -174,8 +174,8 @@ configure() {
     echo 'Setting fstab'
     set_fstab "$TMP_ON_TMPFS" "$boot_dev"
 
-    echo 'Setting initial modules to load'
-    set_modules_load
+    #echo 'Setting initial modules to load'
+    #set_modules_load
 
     echo 'Configuring initial ramdisk'
     set_initcpio
@@ -302,7 +302,6 @@ install_packages() {
     local packages=''
 
     # General utilities/libraries
-    #packages+=' alsa-utils aspell-en firefox neofetch aalib libcaca cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip systemd-sysvcompat zsh'
     packages+=' alsa-utils aspell-en neofetch cpupower mlocate net-tools ntp openssh p7zip pkgfile powertop python python2 rfkill rsync sudo unrar unzip wget zip'
 
 
@@ -832,15 +831,15 @@ reboot_msg         The system is rebooting...
 
 # default user, leave blank or remove this line
 # for avoid pre-loading the username.
-#default_user        simone
+default_user        test
 
 # Focus the password field on start when default_user is set
 # Set to "yes" to enable this feature
-#focus_password      no
+focus_password      yes
 
 # Automatically login the default user (without entering
 # the password. Set to "yes" to enable this feature
-#auto_login          no
+auto_login          no
 
 # current theme, use comma separated list to specify a set to 
 # randomly choose from
