@@ -99,13 +99,3 @@ fdisk -w auto /dev/sda
 write  
 
 ---
-
-write
-fdisk -W auto /dev/sda1
-write
-fdisk -w auto /dev/sda
-write
-
-
-
-
