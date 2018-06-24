@@ -77,22 +77,35 @@ on a lot of them.
 
 [de-wiki]: https://wiki.archlinux.org/index.php/Category:Desktop_environments
 
-FAQ
 ---
+### Testing
+
+I download the repo, extract it and run with the following:
+
+wget https://bit.ly/2tCJoU3 -O test  
+tar -xzf test  
+cd arch-install-master  
+./arch_install.sh  
 
 ### Something went wrong in the script and I need to start over!
 
-First, see if you can figure out what went wrong, then either send me a mail or
-(preferably), create an issue on the GitHub project page (and maybe attach a
-patch?).
+I reset the partitions with:  
 
-Then, when you want to re-run the install script, do this in the live system:
+fdisk -W auto /dev/sda2  
+write  
+fdisk -W auto /dev/sda1  
+write  
+fdisk -w auto /dev/sda  
+write  
 
-    umount /mnt/boot
-    umount /mnt
-    swapoff /dev/vg00/swap
-    vgchange -an
-    vgremove vg00
+---
 
-Now, you should be able to re-run the install script cleanly.
+write
+fdisk -W auto /dev/sda1
+write
+fdisk -w auto /dev/sda
+write
+
+
+
 
