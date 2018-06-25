@@ -80,7 +80,7 @@ KEYMAP='us'
 VIDEO_DRIVER="vesa"
 
 # Wireless device, leave blank to not use wireless and use DHCP instead.
-WIRELESS_DEVICE=""
+WIRELESS_DEVICE="eth0"
 # For tc4200's
 #WIRELESS_DEVICE="eth1"
 
