@@ -322,7 +322,7 @@ install_packages() {
     #packages+=' libreoffice-fresh hunspell-en hyphen-en mythes-en'
 
     # Misc programs
-    #packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode zsh aalib libcaca'
+    packages+=' mpv vlc xscreensaver gparted dosfstools ntfsprogs tmux rxvt-unicode zsh aalib libcaca'
 
     # Xserver
     packages+=' xorg-apps xorg-server xorg-xinit xterm'
@@ -334,7 +334,7 @@ install_packages() {
     #packages+=' ttf-dejavu ttf-liberation adobe-source-code-pro-fonts'
 
     # i3 Setup
-    packages+=' i3 i3status i3blocks i3lock mpv ranger'
+    packages+=' i3 i3status i3blocks i3lock ranger'
 
     # On Intel processors
     #packages+=' intel-ucode'
@@ -892,9 +892,9 @@ set_root_password() {
 
 create_user() {
     local name="$1"; shift
-    local password="$1"; shift
+    local password="$2"; shift
 
-    useradd -m -s /bin/zsh -G adm,systemd-journal,wheel,rfkill,games,network,video,audio,optical,floppy,storage,scanner,power "$name"
+    useradd -s /bin/zsh -G adm,systemd-journal,wheel,rfkill,games,network,video,audio,optical,floppy,storage,scanner,power "$name"
     echo -en "$password\n$password" | passwd "$name"
 }
 
@@ -903,7 +903,7 @@ update_locate() {
 }
 
 get_uuid() {
-    blkid -o export "$1" | grep UUID | awk -F= '{print $2}'
+    blkid "$1" | grep UUID | awk -F= '{print $2}'
 }
 
 set -ex
