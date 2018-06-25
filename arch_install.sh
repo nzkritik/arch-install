@@ -795,8 +795,8 @@ authfile           /var/run/slim.auth
 # to adjust the command according to your preferred shell,
 # i.e. for freebsd use:
 # login_cmd           exec /bin/sh - ~/.xinitrc %session
-login_cmd           exec /bin/bash -login ~/.xinitrc %session
-# login_cmd           exec /bin/zsh -l ~/.xinitrc %session
+# login_cmd           exec /bin/bash -login ~/.xinitrc %session
+login_cmd           exec /bin/zsh -l ~/.xinitrc %session
 
 # Commands executed when starting and exiting a session.
 # They can be used for registering a X11 session with
@@ -831,11 +831,11 @@ reboot_msg         The system is rebooting...
 
 # default user, leave blank or remove this line
 # for avoid pre-loading the username.
-default_user        test
+# default_user        test
 
 # Focus the password field on start when default_user is set
 # Set to "yes" to enable this feature
-focus_password      yes
+focus_password      no
 
 # Automatically login the default user (without entering
 # the password. Set to "yes" to enable this feature
